@@ -39,7 +39,7 @@ val t = tl y (* y -> [1,2,3,4] *)
     tl : 'a list -> 'a list
     null : 'a list -> bool
 *)
-s
+
 (* Functions on Lists *)
 
 fun sum_list(xs : int list) =
