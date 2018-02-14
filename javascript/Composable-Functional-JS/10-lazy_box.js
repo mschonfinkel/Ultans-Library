@@ -1,11 +1,3 @@
-// Old way
-// const nextCharForNumberString = str => {
-//     const trimmed = str.trim()
-//     const number = parseInt(trimmed)
-//     const nextNumber = number + 1
-//     return String.fromCharCode(nextNumber)
-// }
-
 const Box = x =>
   ({
     map: f => Box(f(x)),
@@ -13,13 +5,19 @@ const Box = x =>
     fold: f => f(x),
   });
 
+const LazyBox = g =>
+  ({
+    map: f => LazyBox(() => f(g())),
+    fold: f => f(g()),
+  });
+
 const nextCharForNumberString = str =>
-  Box(str)
+  LazyBox(str)
     .map(str => str.trim())
     .map(str => parseInt(str))
     .map(i => i + 1)
     .fold(i => String.fromCharCode(i));
 
-const result = nextCharForNumberString('   64 ');
+const result = nextCharForNumberString(() => '   64 ');
 
 console.log(result);
