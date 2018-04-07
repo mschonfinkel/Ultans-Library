@@ -6,12 +6,11 @@
 //     return String.fromCharCode(nextNumber)
 // }
 
-const Box = x =>
-  ({
-    map: f => Box(f(x)),
-    inspect: () => `Box(${x})`,
-    fold: f => f(x),
-  });
+const Box = x => ({
+  map: f => Box(f(x)),
+  inspect: () => `Box(${x})`,
+  fold: f => f(x)
+});
 
 const nextCharForNumberString = str =>
   Box(str)
@@ -20,6 +19,6 @@ const nextCharForNumberString = str =>
     .map(i => i + 1)
     .fold(i => String.fromCharCode(i));
 
-const result = nextCharForNumberString('   64 ');
+const result = nextCharForNumberString("   64 ");
 
 console.log(result);
