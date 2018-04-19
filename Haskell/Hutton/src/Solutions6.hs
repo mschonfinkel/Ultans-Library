@@ -1,4 +1,4 @@
-module Main where
+module Solutions6 where
 
 -- Easier Exercises go in the Main file
 
@@ -42,8 +42,8 @@ msort xs = merge (msort left) (msort right)
     where
         (left, right) = halve xs
 
-main :: IO ()
-main = do
+solutions6 :: IO ()
+solutions6 = do
     print $ sumdown 3
     print $ 2^~3
     print $ euclid 6 27

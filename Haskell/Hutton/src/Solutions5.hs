@@ -1,4 +1,4 @@
-module Main where
+module Solutions5 where
 
 -- Solutions for the easy exercises are done here
 
@@ -50,8 +50,8 @@ positions x xs = find x $ zip xs [0..n]
 scalarproduct :: [Int] -> [Int] -> Int
 scalarproduct xs ys = sum [x * y | (x,y) <- zip xs ys]
 
-main :: IO ()
-main = do
+solutions5 :: IO ()
+solutions5 = do
     print $ grid 1 2
     print $ square 2
     print $ replicate' 3 True
