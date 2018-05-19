@@ -1,8 +1,6 @@
 namespace FCollections
 
 module FunctionsAndCollections = 
-    open System
-    open System.IO
 
     seq {1..3}
     |> Seq.iter (printfn "%d")
@@ -44,3 +42,18 @@ module FunctionsAndCollections =
         |> Seq.iter (printfn "%d")
 
     fibonacci 10
+
+    // GroupBy
+    let petBreeds = 
+        [
+            ("Cat", "Persian")
+            ("Dog", "Collie")
+            ("Cat", "Russian Blue")
+            ("Bird", "Canary")
+            ("Dog", "Corgie")
+            ("Cat", "Siamese")
+        ]
+
+    petBreeds
+    |> List.groupBy (fst)
+    |> List.iter (printfn "%A")
