@@ -48,3 +48,19 @@ balance [x] = Leaf x
 balance zs = Node (balance xs) (balance ys)
   where
     (xs, ys) = halve zs
+
+-- Ex. 5
+
+folde :: (Int -> a) -> (a -> a -> a) -> Expr -> a
+folde f g e =
+  case e of 
+    Val x -> f x
+    Add y z -> g (folde f g y) (folde f g z)
+
+-- Ex. 6
+
+eval :: Expr -> Int
+eval = folde (+ 0) (+)
+
+size :: Expr -> Int
+size = folde (const 1) (+)
